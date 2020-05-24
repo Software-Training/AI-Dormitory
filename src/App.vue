@@ -1,9 +1,5 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->  
-    <!-- <login /> -->
-    <!-- <register /> -->
      <keep-alive exclude="Detail">
     <router-view></router-view>
     </keep-alive>

@@ -5,13 +5,17 @@ import 'vant/lib/index.css'
 import VueRouter from 'vue-router'
 // 在main中引入路由文件
 import router from './router'
+import { NavBar } from 'vant';
+import { Popup } from 'vant';
+
+Vue.use(Popup);
+Vue.use(NavBar);
 // 引用axios
 var axios = require('axios')
 // 将API方法绑定到全局
 Vue.prototype.$axios = axios
 Vue.use(Vant)
 Vue.use(VueRouter)
-
 Vue.config.productionTip = false
 
 new Vue({

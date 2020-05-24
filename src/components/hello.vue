@@ -12,6 +12,9 @@
     <router-link to="/register">
       <van-button id="register" type="primary" size="large">注册</van-button>
     </router-link>
+     <router-link to="/faceLogin">
+      <p id="faceLogin">人脸登录</p>
+    </router-link>
   </div>
 </template>
 
@@ -19,41 +22,36 @@
 import { Button } from "vant";
 
 export default {
+  data(){
+    return {
+   
+    }
+  },
   components: {
     [Button.name]: Button
   },
-  methods: {
-    gotologin() {
-      //点击跳转至上次浏览页面
-      // this.$router.go(-1)
-
-      //指定跳转地址
-      // this.$router.replace('/login')
-      alert("login");
-    },
-    gotoregister() {
-      //点击跳转至上次浏览页面
-      // this.$router.go(-1)
-
-      //指定跳转地址
-      // this.$router.replace('/register')
-      alert("register");
-    }
+  methods: {  
   }
 };
 </script>  
 
 <style>
 #logo {
-  width: 200px;
-  height: 200px;
+  width: 200rem;
+  height: 200rem;
 }
 #login {
-  margin-top: 20px;
+  margin-top: 20rem;
 }
 #register {
-  margin-top: 20px;
+  margin-top: 20rem;
   background-color: white;
   color: green;
+}
+#faceLogin {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  font-size: 1rem;
+  color:#C0C0C0;
 }
 </style>

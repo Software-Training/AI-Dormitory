@@ -1,15 +1,18 @@
 <template>
   <div id="app">
-    <div id="title">
-      <h2>{{title}}</h2>
-    </div>
+    <van-nav-bar
+  title="账号注册"
+  left-text="返回"
+  left-arrow
+  @click-left="onClickLeft"
+/>
     <div>
       <van-form @submit="onSubmit" v-model="registerInfo">
         <van-cell-group class="top">
           <van-field v-model="registerInfo.userAccount" placeholder="请输入用户名" label="用户名" />
         </van-cell-group>
         <van-cell-group class="top">
-          <van-field v-model="registerInfo.password" placeholder="请输入密码" label="密码" />
+          <van-field type="password" v-model="registerInfo.password" placeholder="请输入密码" label="密码" />
         </van-cell-group>
         <van-cell-group class="top bottom">
           <van-field v-model="telephone" placeholder="用于找回账号与密码" label="手机号" disabled />
@@ -34,7 +37,7 @@
 <script>
 import { Button } from "vant";
 import { registerAction } from "@/api/register.js";
-
+import { Toast } from 'vant';
 export default {
   components: {
     [Button.name]: Button
@@ -54,12 +57,21 @@ export default {
   methods: {
     gotoRegister() {
       registerAction(this.registerInfo).then(res => {
-        console.log(res);
-        alert(res.data.msg);
+       if(res.data.success==true)
+        {
+           Toast.success('注册成功');
+           this.$router.push({ path: `/faceRegister` });
+        }
+        else{
+            Toast.fail('学号不存在');
+        }
       });
-    }
-  }
-};
+    },    
+    onClickLeft() {
+      this.$router.go(-1);
+  },
+}
+}
 </script>  
 
 <style>

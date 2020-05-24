@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <div id="title">
-      <h1>欢迎使用AI宿舍系统</h1>
-    </div>
+    <van-nav-bar
+  title="账号登录"
+  left-text="返回"
+  left-arrow
+  @click-left="onClickLeft"
+/>
     <img
       id="logo"
       src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590052348429&di=ef90f1e0912ce3fe1e15074b8526b848&imgtype=0&src=http%3A%2F%2Ffile06.16sucai.com%2F2016%2F0921%2F2b04bfeb965677fe8c2d5a4dbd292478.jpg"
@@ -40,7 +43,7 @@
 <script>
 import { Button } from "vant";
 import { loginAction } from "@/api/login.js";
-
+import { Toast } from 'vant';
 export default {
   components: {
     [Button.name]: Button
@@ -56,10 +59,19 @@ export default {
   methods: {
     gotologin() {
       loginAction(this.account).then(res => {
-        console.log(res);
-        alert(res.data.msg);
+        if(res.data.success==true)
+        {
+           Toast.success('登录成功');
+           this.$router.push({ path: `/menu` });
+        }
+        else{
+            Toast.fail('账号或密码错误');
+        }
       });
-    }
+    },
+    onClickLeft() {
+      this.$router.go(-1);
+  },
   }
 };
 </script>  
@@ -79,5 +91,6 @@ export default {
 }
 .top {
   margin-top: 20px;
+
 }
 </style>
