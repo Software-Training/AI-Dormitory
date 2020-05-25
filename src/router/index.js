@@ -3,12 +3,13 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 //引入组件
-import hello from '@/components/hello.vue'
+// import hello from '@/components/hello.vue'
 import login from '@/components/login.vue'
 import register from '@/components/register.vue'
 import menu from '@/components/menu.vue'
 import faceRegister from '@/components/faceRegister.vue'
 import faceLogin from '@/components/faceLogin.vue'
+import content from '@/components/content.vue'
 
 // 使用路由
 Vue.use(VueRouter)
@@ -18,7 +19,7 @@ export default new VueRouter ({
     routes:[
         {
             // 配置路由路径及其跳转的组件
-            path:'/',component:hello   //首页
+            path:'/',component:content   //首页
         },
         {
             path:'/login',component:login   //跳转到登录的路由
@@ -34,6 +35,9 @@ export default new VueRouter ({
         },
         {
             path:'/faceLogin',component:faceLogin   //跳转到人脸登陆的路由
+        },
+        {
+            path:'/content',component:content   //跳转到详情界面的路由
         },
         //倘若路由找不到就默认跳转到首页
         {
