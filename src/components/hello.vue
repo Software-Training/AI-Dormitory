@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <p>Welcome to</p>
-    <p>AI accommodation</p>
+    <p>AI Dormitory</p>
     <img
       id="logo"
       src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590052348429&di=ef90f1e0912ce3fe1e15074b8526b848&imgtype=0&src=http%3A%2F%2Ffile06.16sucai.com%2F2016%2F0921%2F2b04bfeb965677fe8c2d5a4dbd292478.jpg"
